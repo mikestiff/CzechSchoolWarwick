@@ -1,0 +1,6 @@
+{
+  "name": "Warwick Czech School",
+  "description": "An immersive, fancy parallax scrolling website for the Czech School in Warwick, featuring class details, teacher bios, fees, and event schedules.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
