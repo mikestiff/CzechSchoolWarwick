@@ -65,26 +65,35 @@ export default function Header({ lang, setLang, activeSection }: HeaderProps) {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-neutral-950/80 backdrop-blur-xl border-b border-white/5 py-4 shadow-lg' 
-          : 'bg-gradient-to-b from-neutral-950/80 to-transparent py-6'
+          ? 'bg-white/90 backdrop-blur-xl border-b-2 border-amber-200/80 py-3 shadow-md shadow-amber-500/5' 
+          : 'bg-gradient-to-b from-amber-100/80 via-amber-50/50 to-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo / Brand Name */}
         <button
           onClick={() => handleLinkClick('hero')}
-          className="flex flex-col items-start cursor-pointer text-left focus:outline-none group"
+          className="flex items-center gap-3 cursor-pointer text-left focus:outline-none group"
         >
-          <span className="font-sans font-bold tracking-tight text-lg text-white transition-colors duration-200 group-hover:text-amber-400">
-            {lang === 'en' ? 'Czech School' : 'Česká škola'}
-          </span>
-          <span className="font-mono text-[10px] tracking-widest text-neutral-400 flex items-center gap-1 uppercase">
-            <MapPin className="w-2.5 h-2.5 text-amber-500" /> Warwick
-          </span>
+          <div className="relative overflow-hidden rounded-xl border border-amber-300 shadow-sm bg-white p-0.5 transform group-hover:scale-105 transition-transform shrink-0">
+            <img 
+              src="/logo.jpg"
+              alt="Czech School Warwick Logo"
+              className="h-11 w-auto object-contain rounded-lg"
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="font-display font-bold tracking-wide text-xl text-slate-800 transition-colors duration-200 group-hover:text-sky-600">
+              {lang === 'en' ? 'Czech School' : 'Česká škola'}
+            </span>
+            <span className="font-sans font-semibold text-xs tracking-wider text-rose-500 flex items-center gap-1 uppercase">
+              <MapPin className="w-3 h-3 text-amber-500" /> Warwick
+            </span>
+          </div>
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className="hidden md:flex items-center space-x-1 bg-amber-100/60 p-1.5 rounded-full border border-amber-200/60 shadow-inner">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -92,36 +101,29 @@ export default function Header({ lang, setLang, activeSection }: HeaderProps) {
                 key={link.id}
                 id={`nav-link-${link.id}`}
                 onClick={() => handleLinkClick(link.id)}
-                className={`relative px-4 py-2 font-sans text-xs tracking-wider uppercase transition-colors duration-200 cursor-pointer focus:outline-none ${
+                className={`relative px-4 py-1.5 font-display text-xs tracking-wider uppercase transition-all duration-200 cursor-pointer focus:outline-none rounded-full ${
                   isActive 
-                    ? 'text-white font-medium' 
-                    : 'text-neutral-400 hover:text-white'
+                    ? 'text-slate-900 font-bold bg-white shadow-sm' 
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
                 }`}
               >
                 {lang === 'en' ? link.en : link.cz}
-                {isActive && (
-                  <motion.div
-                    layoutId="activeIndicator"
-                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-amber-400 rounded-full"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
               </button>
             );
           })}
         </nav>
 
         {/* Right Side Controls (Language & CTA) */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-3">
           {/* Language Switcher */}
-          <div className="relative flex bg-neutral-900 border border-white/10 rounded-full p-0.5 shadow-inner">
+          <div className="relative flex bg-slate-100 border border-slate-200 rounded-full p-1 shadow-inner">
             <button
               id="lang-btn-en"
               onClick={() => setLang('en')}
-              className={`px-3 py-1 text-[10px] font-sans font-semibold tracking-wider rounded-full transition-all duration-300 ${
+              className={`px-3 py-1 text-xs font-display font-bold tracking-wider rounded-full transition-all duration-300 ${
                 lang === 'en'
-                  ? 'bg-amber-400 text-neutral-950 shadow-md'
-                  : 'text-neutral-400 hover:text-white'
+                  ? 'bg-sky-500 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               EN
@@ -129,10 +131,10 @@ export default function Header({ lang, setLang, activeSection }: HeaderProps) {
             <button
               id="lang-btn-cz"
               onClick={() => setLang('cz')}
-              className={`px-3 py-1 text-[10px] font-sans font-semibold tracking-wider rounded-full transition-all duration-300 ${
+              className={`px-3 py-1 text-xs font-display font-bold tracking-wider rounded-full transition-all duration-300 ${
                 lang === 'cz'
-                  ? 'bg-amber-400 text-neutral-950 shadow-md'
-                  : 'text-neutral-400 hover:text-white'
+                  ? 'bg-rose-500 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               CZ
@@ -143,31 +145,31 @@ export default function Header({ lang, setLang, activeSection }: HeaderProps) {
           <button
             id="header-cta-register"
             onClick={() => handleLinkClick('register')}
-            className="px-4 py-2 bg-white/10 hover:bg-amber-400 hover:text-neutral-950 border border-white/10 hover:border-amber-400 rounded-full font-sans text-xs uppercase tracking-wider text-white transition-all duration-300 font-medium cursor-pointer"
+            className="px-5 py-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 border-2 border-amber-300/80 rounded-full font-display text-xs uppercase tracking-wider text-slate-900 shadow-md hover:shadow-lg transition-all duration-300 font-bold cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
           >
             {lang === 'en' ? 'Enroll Now' : 'Přihlásit dítě'}
           </button>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="flex items-center md:hidden space-x-3">
+        <div className="flex items-center md:hidden space-x-2">
           {/* Mobile Language Switcher */}
           <button
             id="mobile-lang-switch"
             onClick={() => setLang(lang === 'en' ? 'cz' : 'en')}
-            className="flex items-center gap-1 px-3 py-1.5 bg-neutral-900 border border-white/10 rounded-full text-[10px] font-mono uppercase tracking-wider text-neutral-300"
+            className="flex items-center gap-1 px-3 py-1.5 bg-amber-100 border border-amber-300 rounded-full text-xs font-display font-bold uppercase tracking-wider text-slate-800"
           >
-            <Globe className="w-3.5 h-3.5 text-amber-500" />
+            <Globe className="w-3.5 h-3.5 text-sky-600" />
             {lang === 'en' ? 'CZ' : 'EN'}
           </button>
 
           <button
             id="mobile-menu-toggle"
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-neutral-300 hover:text-white focus:outline-none"
+            className="p-2 text-slate-800 hover:text-rose-500 focus:outline-none"
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -181,16 +183,16 @@ export default function Header({ lang, setLang, activeSection }: HeaderProps) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="absolute top-full left-0 w-full bg-neutral-950 border-b border-white/5 shadow-2xl md:hidden overflow-hidden"
+            className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b-2 border-amber-300 shadow-xl md:hidden overflow-hidden"
           >
-            <div className="px-6 py-6 flex flex-col space-y-4">
+            <div className="px-6 py-6 flex flex-col space-y-3">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   id={`mobile-nav-${link.id}`}
                   onClick={() => handleLinkClick(link.id)}
-                  className={`w-full py-2.5 text-left font-sans text-sm uppercase tracking-wider border-b border-white/5 cursor-pointer ${
-                    activeSection === link.id ? 'text-amber-400 font-medium' : 'text-neutral-400'
+                  className={`w-full py-2.5 text-left font-display text-base tracking-wider border-b border-amber-100 cursor-pointer ${
+                    activeSection === link.id ? 'text-rose-600 font-bold' : 'text-slate-700'
                   }`}
                 >
                   {lang === 'en' ? link.en : link.cz}
@@ -200,7 +202,7 @@ export default function Header({ lang, setLang, activeSection }: HeaderProps) {
                 <button
                   id="mobile-cta-enroll"
                   onClick={() => handleLinkClick('register')}
-                  className="w-full py-3 bg-amber-400 hover:bg-amber-500 text-neutral-950 rounded-full text-center font-sans text-xs uppercase tracking-wider font-semibold"
+                  className="w-full py-3 bg-amber-400 hover:bg-amber-500 text-slate-900 rounded-full text-center font-display text-sm uppercase tracking-wider font-bold shadow-md"
                 >
                   {lang === 'en' ? 'Register Child' : 'Zapsat dítě'}
                 </button>

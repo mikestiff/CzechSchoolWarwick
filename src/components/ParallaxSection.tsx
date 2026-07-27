@@ -55,12 +55,12 @@ export default function ParallaxSection({
 
       {/* Backdrop overlay layer */}
       <div 
-        className="absolute inset-0 bg-neutral-950/70 z-1" 
+        className="absolute inset-0 bg-amber-900/40 z-1 backdrop-brightness-95" 
         style={{ opacity: overlayOpacity }}
       />
       
-      {/* Visual noise/gradient overlay for high end premium vibe */}
-      <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/60 z-2 pointer-events-none" />
+      {/* Visual noise/gradient overlay for playful warm vibe */}
+      <div className="absolute inset-0 bg-gradient-to-t from-amber-50 via-transparent to-amber-100/60 z-2 pointer-events-none" />
 
       {/* Content Layer */}
       <div className="relative w-full h-full max-w-7xl mx-auto px-6 py-20 z-10 flex items-center justify-center">

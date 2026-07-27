@@ -84,7 +84,7 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
   const selectedTermsDetails = FEES_DATA.terms.filter(t => selectedTerms.includes(t.id));
 
   return (
-    <div id="registration-component" className="w-full max-w-4xl mx-auto bg-neutral-900/65 backdrop-blur-md rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
+    <div id="registration-component" className="w-full max-w-4xl mx-auto bg-white/95 backdrop-blur-md rounded-3xl border-2 border-amber-200 overflow-hidden shadow-2xl">
       <AnimatePresence mode="wait">
         {!isSubmitted ? (
           <motion.form
@@ -98,10 +98,10 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
             {/* Left Column: Form Fields */}
             <div className="flex flex-col space-y-6">
               <div>
-                <h3 className="font-sans font-bold text-2xl text-white mb-2">
+                <h3 className="font-display font-bold text-2xl text-slate-800 mb-2">
                   {lang === 'en' ? 'Register Your Child' : 'Zápis do školy'}
                 </h3>
-                <p className="font-sans text-sm text-neutral-400">
+                <p className="font-sans text-sm text-slate-600 leading-relaxed">
                   {lang === 'en' 
                     ? 'Join our community! Please fill in the details below to complete your registration request.' 
                     : 'Připojte se k naší komunitě! Vyplňte prosím níže uvedené údaje k dokončení registrace.'}
@@ -110,94 +110,94 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
 
               {/* Parent Name */}
               <div className="relative">
-                <label className="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
+                <label className="block text-xs font-display font-bold uppercase tracking-wider text-slate-700 mb-2">
                   {lang === 'en' ? 'Parent / Guardian Full Name' : 'Celé jméno rodiče / opatrovníka'}
                 </label>
                 <div className="relative">
-                  <User className="absolute left-4 top-3.5 h-4 w-4 text-neutral-500" />
+                  <User className="absolute left-4 top-3.5 h-4 w-4 text-amber-500" />
                   <input
                     type="text"
                     id="reg-parent-name"
                     value={parentName}
                     onChange={(e) => setParentName(e.target.value)}
                     placeholder={lang === 'en' ? 'e.g. Marie Nováková' : 'např. Marie Nováková'}
-                    className={`w-full bg-neutral-950/60 border ${errors.parentName ? 'border-red-500' : 'border-white/10'} focus:border-amber-400 rounded-xl py-3 pl-12 pr-4 text-sm text-white placeholder-neutral-600 focus:outline-none focus:ring-1 focus:ring-amber-400 transition-colors`}
+                    className={`w-full bg-slate-50 border ${errors.parentName ? 'border-rose-500' : 'border-slate-200'} focus:border-amber-400 focus:bg-white rounded-2xl py-3 pl-12 pr-4 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all`}
                   />
                 </div>
-                {errors.parentName && <span className="text-xs text-red-500 mt-1 block">{errors.parentName}</span>}
+                {errors.parentName && <span className="text-xs font-semibold text-rose-500 mt-1 block">{errors.parentName}</span>}
               </div>
 
               {/* Email & Phone Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="relative">
-                  <label className="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
+                  <label className="block text-xs font-display font-bold uppercase tracking-wider text-slate-700 mb-2">
                     {lang === 'en' ? 'Email Address' : 'E-mailová adresa'}
                   </label>
                   <div className="relative">
-                    <Mail className="absolute left-4 top-3.5 h-4 w-4 text-neutral-500" />
+                    <Mail className="absolute left-4 top-3.5 h-4 w-4 text-amber-500" />
                     <input
                       type="email"
                       id="reg-email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="marie@email.com"
-                      className={`w-full bg-neutral-950/60 border ${errors.email ? 'border-red-500' : 'border-white/10'} focus:border-amber-400 rounded-xl py-3 pl-12 pr-4 text-sm text-white placeholder-neutral-600 focus:outline-none focus:ring-1 focus:ring-amber-400 transition-colors`}
+                      className={`w-full bg-slate-50 border ${errors.email ? 'border-rose-500' : 'border-slate-200'} focus:border-amber-400 focus:bg-white rounded-2xl py-3 pl-12 pr-4 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all`}
                     />
                   </div>
-                  {errors.email && <span className="text-xs text-red-500 mt-1 block">{errors.email}</span>}
+                  {errors.email && <span className="text-xs font-semibold text-rose-500 mt-1 block">{errors.email}</span>}
                 </div>
 
                 <div className="relative">
-                  <label className="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
+                  <label className="block text-xs font-display font-bold uppercase tracking-wider text-slate-700 mb-2">
                     {lang === 'en' ? 'Phone Number' : 'Telefonní číslo'}
                   </label>
                   <div className="relative">
-                    <Phone className="absolute left-4 top-3.5 h-4 w-4 text-neutral-500" />
+                    <Phone className="absolute left-4 top-3.5 h-4 w-4 text-amber-500" />
                     <input
                       type="tel"
                       id="reg-phone"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+44 7123 456789"
-                      className={`w-full bg-neutral-950/60 border ${errors.phone ? 'border-red-500' : 'border-white/10'} focus:border-amber-400 rounded-xl py-3 pl-12 pr-4 text-sm text-white placeholder-neutral-600 focus:outline-none focus:ring-1 focus:ring-amber-400 transition-colors`}
+                      className={`w-full bg-slate-50 border ${errors.phone ? 'border-rose-500' : 'border-slate-200'} focus:border-amber-400 focus:bg-white rounded-2xl py-3 pl-12 pr-4 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all`}
                     />
                   </div>
-                  {errors.phone && <span className="text-xs text-red-500 mt-1 block">{errors.phone}</span>}
+                  {errors.phone && <span className="text-xs font-semibold text-rose-500 mt-1 block">{errors.phone}</span>}
                 </div>
               </div>
 
               {/* Child's Name */}
               <div className="relative">
-                <label className="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
+                <label className="block text-xs font-display font-bold uppercase tracking-wider text-slate-700 mb-2">
                   {lang === 'en' ? "Child's Full Name" : 'Celé jméno dítěte'}
                 </label>
                 <div className="relative">
-                  <User className="absolute left-4 top-3.5 h-4 w-4 text-neutral-500" />
+                  <User className="absolute left-4 top-3.5 h-4 w-4 text-rose-500" />
                   <input
                     type="text"
                     id="reg-child-name"
                     value={childName}
                     onChange={(e) => setChildName(e.target.value)}
                     placeholder={lang === 'en' ? 'e.g. Tomáš Novák' : 'např. Tomáš Novák'}
-                    className={`w-full bg-neutral-950/60 border ${errors.childName ? 'border-red-500' : 'border-white/10'} focus:border-amber-400 rounded-xl py-3 pl-12 pr-4 text-sm text-white placeholder-neutral-600 focus:outline-none focus:ring-1 focus:ring-amber-400 transition-colors`}
+                    className={`w-full bg-slate-50 border ${errors.childName ? 'border-rose-500' : 'border-slate-200'} focus:border-amber-400 focus:bg-white rounded-2xl py-3 pl-12 pr-4 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all`}
                   />
                 </div>
-                {errors.childName && <span className="text-xs text-red-500 mt-1 block">{errors.childName}</span>}
+                {errors.childName && <span className="text-xs font-semibold text-rose-500 mt-1 block">{errors.childName}</span>}
               </div>
 
               {/* Class Select */}
               <div className="relative">
-                <label className="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
+                <label className="block text-xs font-display font-bold uppercase tracking-wider text-slate-700 mb-2">
                   {lang === 'en' ? 'Target Classroom / Age Group' : 'Výběr třídy / Věková skupina'}
                 </label>
                 <select
                   id="reg-class"
                   value={selectedClass}
                   onChange={(e) => setSelectedClass(e.target.value)}
-                  className="w-full bg-neutral-950/60 border border-white/10 focus:border-amber-400 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:ring-1 focus:ring-amber-400 transition-colors cursor-pointer appearance-none"
+                  className="w-full bg-slate-50 border border-slate-200 focus:border-amber-400 focus:bg-white rounded-2xl py-3 px-4 text-sm text-slate-800 font-semibold focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all cursor-pointer appearance-none"
                 >
                   {CLASSES_DATA.map((cls) => (
-                    <option key={cls.id} value={cls.id} className="bg-neutral-900 text-white">
+                    <option key={cls.id} value={cls.id} className="bg-white text-slate-800">
                       {lang === 'en' ? `${cls.nameEn} (${cls.age})` : `${cls.nameCz} (${cls.age})`}
                     </option>
                   ))}
@@ -206,13 +206,13 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
             </div>
 
             {/* Right Column: Fees and Calculation */}
-            <div className="flex flex-col justify-between space-y-6 bg-neutral-950/40 p-6 rounded-2xl border border-white/5">
+            <div className="flex flex-col justify-between space-y-6 bg-amber-50/70 p-6 rounded-3xl border border-amber-200">
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-sans font-semibold text-lg text-white mb-2">
+                  <h4 className="font-display font-bold text-lg text-slate-800 mb-2">
                     {lang === 'en' ? 'Fees & Term Selection' : 'Výběr trimestru & Poplatky'}
                   </h4>
-                  <p className="font-sans text-xs text-neutral-400 leading-relaxed">
+                  <p className="font-sans text-xs text-slate-600 leading-relaxed">
                     {lang === 'en' 
                       ? 'Select which terms your child will attend. Fees are payable termly. A 16.6% sibling discount is automatically applied from the 2nd child.' 
                       : 'Zvolte, které trimestry bude dítě navštěvovat. Školné se hradí na začátku trimestru. Od 2. dítěte je automaticky uplatněna sourozenecká sleva.'}
@@ -221,7 +221,7 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
 
                 {/* Term Select Toggles */}
                 <div className="space-y-3">
-                  <label className="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-1">
+                  <label className="block text-xs font-display font-bold uppercase tracking-wider text-slate-700 mb-1">
                     {lang === 'en' ? 'Select Terms' : 'Zvolte trimestry'}
                   </label>
                   {FEES_DATA.terms.map((term) => {
@@ -232,30 +232,30 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
                         type="button"
                         id={`term-toggle-${term.id}`}
                         onClick={() => handleTermToggle(term.id)}
-                        className={`w-full flex items-center justify-between p-3 rounded-xl border text-left transition-all duration-300 ${
+                        className={`w-full flex items-center justify-between p-3 rounded-2xl border text-left transition-all duration-300 ${
                           isSelected
-                            ? 'bg-amber-400/10 border-amber-400 text-white'
-                            : 'bg-neutral-950/60 border-white/5 text-neutral-400 hover:border-white/10'
+                            ? 'bg-amber-400/20 border-2 border-amber-500 text-slate-900 shadow-sm'
+                            : 'bg-white border-slate-200 text-slate-600 hover:border-amber-300'
                         }`}
                       >
                         <div className="flex items-center gap-3">
-                          <div className={`w-4 h-4 rounded flex items-center justify-center border ${isSelected ? 'border-amber-400 bg-amber-400 text-neutral-950' : 'border-neutral-700'}`}>
-                            {isSelected && <span className="text-[10px] font-bold">✓</span>}
+                          <div className={`w-5 h-5 rounded-lg flex items-center justify-center border ${isSelected ? 'border-amber-500 bg-amber-400 text-slate-900 font-bold' : 'border-slate-300 bg-slate-100'}`}>
+                            {isSelected && <span className="text-xs">✓</span>}
                           </div>
                           <div>
-                            <p className="text-xs font-sans font-semibold">
+                            <p className="text-xs font-display font-bold text-slate-800">
                               {lang === 'en' ? term.nameEn : term.nameCz}
                             </p>
-                            <p className="text-[10px] font-mono text-neutral-500">
+                            <p className="text-[10px] font-mono text-slate-500">
                               {term.sessions} {lang === 'en' ? 'sessions' : 'lekcí'}
                             </p>
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="text-xs font-mono font-bold text-white">
+                          <p className="text-xs font-display font-bold text-slate-800">
                             £{term.priceChild.toFixed(2)}
                           </p>
-                          <p className="text-[9px] font-mono text-neutral-500">
+                          <p className="text-[9px] font-mono text-slate-500">
                             {lang === 'en' ? 'Sibling: ' : 'Sourozenec: '} £{term.priceSibling.toFixed(2)}
                           </p>
                         </div>
@@ -265,32 +265,32 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
                 </div>
 
                 {/* Number of Children counter */}
-                <div className="flex items-center justify-between py-3 border-t border-b border-white/5">
+                <div className="flex items-center justify-between py-3 border-t border-b border-amber-200">
                   <div>
-                    <span className="block text-xs font-mono uppercase tracking-wider text-neutral-400">
+                    <span className="block text-xs font-display font-bold uppercase tracking-wider text-slate-700">
                       {lang === 'en' ? 'Number of Children' : 'Počet přihlašovaných dětí'}
                     </span>
-                    <span className="text-[10px] text-neutral-500">
+                    <span className="text-[10px] text-slate-500 font-semibold">
                       {lang === 'en' ? 'Applies sibling discount' : 'Uplatňuje sourozeneckou slevu'}
                     </span>
                   </div>
-                  <div className="flex items-center bg-neutral-950 border border-white/10 rounded-xl overflow-hidden p-0.5">
+                  <div className="flex items-center bg-white border border-amber-300 rounded-xl overflow-hidden p-0.5 shadow-sm">
                     <button
                       type="button"
                       id="btn-children-dec"
                       onClick={() => numChildren > 1 && setNumChildren(numChildren - 1)}
-                      className="px-3 py-1.5 hover:bg-white/5 text-white font-bold text-sm focus:outline-none"
+                      className="px-3 py-1.5 hover:bg-amber-100 text-slate-800 font-bold text-sm focus:outline-none transition-colors"
                     >
                       -
                     </button>
-                    <span className="px-3 text-sm text-white font-bold font-mono">
+                    <span className="px-3 text-sm text-slate-900 font-bold font-display">
                       {numChildren}
                     </span>
                     <button
                       type="button"
                       id="btn-children-inc"
                       onClick={() => setNumChildren(numChildren + 1)}
-                      className="px-3 py-1.5 hover:bg-white/5 text-white font-bold text-sm focus:outline-none"
+                      className="px-3 py-1.5 hover:bg-amber-100 text-slate-800 font-bold text-sm focus:outline-none transition-colors"
                     >
                       +
                     </button>
@@ -299,12 +299,12 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
               </div>
 
               {/* Total Calculation Display */}
-              <div className="space-y-4 pt-4">
+              <div className="space-y-4 pt-2">
                 <div className="flex items-end justify-between">
-                  <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
+                  <span className="text-xs font-display font-bold uppercase tracking-wider text-slate-600">
                     {lang === 'en' ? 'Estimated Total:' : 'Odhadovaná částka:'}
                   </span>
-                  <span className="text-2xl font-bold font-mono text-amber-400">
+                  <span className="text-3xl font-bold font-display text-amber-600">
                     £{totalFees.toFixed(2)}
                   </span>
                 </div>
@@ -312,10 +312,10 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
                 <button
                   type="submit"
                   id="reg-submit-btn"
-                  className="w-full py-4 bg-amber-400 hover:bg-amber-500 text-neutral-950 rounded-xl font-sans text-xs uppercase tracking-wider font-bold transition-all duration-300 shadow-lg shadow-amber-400/10 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-4 bg-gradient-to-r from-amber-400 via-amber-500 to-rose-400 hover:from-amber-500 hover:to-rose-500 text-slate-900 rounded-2xl font-display text-sm uppercase tracking-wider font-bold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer border-2 border-amber-300"
                 >
                   {lang === 'en' ? 'Submit Registration' : 'Odeslat závaznou přihlášku'}
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
@@ -329,29 +329,31 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
             exit={{ opacity: 0 }}
             className="p-8 md:p-12 text-center flex flex-col items-center"
           >
-            <CheckCircle2 className="w-16 h-16 text-emerald-400 mb-6" />
+            <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6 shadow-md border-2 border-emerald-300">
+              <CheckCircle2 className="w-12 h-12" />
+            </div>
             
-            <h3 className="font-sans font-bold text-3xl text-white mb-3">
+            <h3 className="font-display font-bold text-3xl text-slate-800 mb-3">
               {lang === 'en' ? 'Registration Request Received!' : 'Přihláška úspěšně odeslána!'}
             </h3>
             
-            <p className="font-sans text-sm text-neutral-400 max-w-xl mx-auto mb-8">
+            <p className="font-sans text-sm text-slate-600 max-w-xl mx-auto mb-8 leading-relaxed">
               {lang === 'en' 
                 ? `Thank you, ${parentName}! We have generated your registration details. A place has been pre-reserved for ${childName} in the ${selectedClassDetails?.nameEn}.`
                 : `Děkujeme, ${parentName}! Vaše přihláška byla zaznamenána. Místo bylo předběžně rezervováno pro ${childName} ve třídě ${selectedClassDetails?.nameCz}.`}
             </p>
 
             {/* Glassmorphic Printable Receipt */}
-            <div id="printable-receipt" className="w-full max-w-lg bg-neutral-950/80 rounded-2xl border border-white/10 text-left p-6 md:p-8 space-y-6 mb-8 shadow-inner">
-              <div className="flex items-center justify-between border-b border-white/5 pb-4">
+            <div id="printable-receipt" className="w-full max-w-lg bg-amber-50/90 rounded-3xl border-2 border-amber-200 text-left p-6 md:p-8 space-y-6 mb-8 shadow-md">
+              <div className="flex items-center justify-between border-b border-amber-200 pb-4">
                 <div>
-                  <h4 className="font-sans font-bold text-sm text-white">CZECH SCHOOL WARWICK</h4>
-                  <p className="font-mono text-[9px] text-neutral-500 uppercase tracking-widest">
+                  <h4 className="font-display font-bold text-base text-slate-800">WARWICK CZECH SCHOOL</h4>
+                  <p className="font-mono text-[10px] text-slate-500 uppercase tracking-widest font-bold">
                     Reference ID: CSW-{Math.floor(1000 + Math.random() * 9000)}-2026
                   </p>
                 </div>
-                <div className="bg-amber-400/10 border border-amber-400/30 rounded-full px-3 py-1">
-                  <span className="font-mono text-[9px] text-amber-400 uppercase font-bold tracking-wider">
+                <div className="bg-amber-400/20 border border-amber-400 rounded-full px-3 py-1">
+                  <span className="font-display text-[10px] text-amber-800 uppercase font-bold tracking-wider">
                     {lang === 'en' ? 'Pre-registered' : 'Předregistrováno'}
                   </span>
                 </div>
@@ -360,86 +362,86 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
               {/* Receipt Details */}
               <div className="grid grid-cols-2 gap-4 text-xs font-sans">
                 <div>
-                  <span className="block text-neutral-500 font-mono text-[9px] uppercase tracking-wider">{lang === 'en' ? 'Parent Name' : 'Jméno rodiče'}</span>
-                  <span className="text-white font-medium">{parentName}</span>
+                  <span className="block text-slate-500 font-display text-[10px] font-bold uppercase tracking-wider">{lang === 'en' ? 'Parent Name' : 'Jméno rodiče'}</span>
+                  <span className="text-slate-800 font-bold text-sm">{parentName}</span>
                 </div>
                 <div>
-                  <span className="block text-neutral-500 font-mono text-[9px] uppercase tracking-wider">{lang === 'en' ? 'Child Name' : 'Jméno dítěte'}</span>
-                  <span className="text-white font-medium">{childName}</span>
+                  <span className="block text-slate-500 font-display text-[10px] font-bold uppercase tracking-wider">{lang === 'en' ? 'Child Name' : 'Jméno dítěte'}</span>
+                  <span className="text-slate-800 font-bold text-sm">{childName}</span>
                 </div>
                 <div>
-                  <span className="block text-neutral-500 font-mono text-[9px] uppercase tracking-wider">{lang === 'en' ? 'Assigned Class' : 'Přiřazená třída'}</span>
-                  <span className="text-white font-medium">{lang === 'en' ? selectedClassDetails?.nameEn : selectedClassDetails?.nameCz}</span>
+                  <span className="block text-slate-500 font-display text-[10px] font-bold uppercase tracking-wider">{lang === 'en' ? 'Assigned Class' : 'Přiřazená třída'}</span>
+                  <span className="text-slate-800 font-bold text-sm">{lang === 'en' ? selectedClassDetails?.nameEn : selectedClassDetails?.nameCz}</span>
                 </div>
                 <div>
-                  <span className="block text-neutral-500 font-mono text-[9px] uppercase tracking-wider">{lang === 'en' ? 'Selected Terms' : 'Zvolené trimestry'}</span>
-                  <span className="text-white font-medium">{selectedTermsDetails.map(t => lang === 'en' ? t.nameEn.split(' ')[0] + ' ' + t.nameEn.split(' ')[1] : t.nameCz.split(' ')[0] + ' ' + t.nameCz.split(' ')[1]).join(', ')}</span>
+                  <span className="block text-slate-500 font-display text-[10px] font-bold uppercase tracking-wider">{lang === 'en' ? 'Selected Terms' : 'Zvolené trimestry'}</span>
+                  <span className="text-slate-800 font-bold text-sm">{selectedTermsDetails.map(t => lang === 'en' ? t.nameEn.split(' ')[0] + ' ' + t.nameEn.split(' ')[1] : t.nameCz.split(' ')[0] + ' ' + t.nameCz.split(' ')[1]).join(', ')}</span>
                 </div>
               </div>
 
               {/* Bank Details section */}
-              <div className="bg-neutral-900 border border-white/5 rounded-xl p-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-sans font-semibold text-xs text-white">
+              <div className="bg-white border border-amber-200 rounded-2xl p-4 space-y-3 shadow-inner">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+                  <span className="font-display font-bold text-xs text-slate-800">
                     {lang === 'en' ? 'Payment Instruction (Bank Transfer)' : 'Platební pokyny (Převod na účet)'}
                   </span>
-                  <span className="font-mono text-[10px] text-neutral-500">Sort & Acc No</span>
+                  <span className="font-mono text-[10px] text-slate-400">Sort & Acc No</span>
                 </div>
 
-                <div className="space-y-1.5 text-xs">
+                <div className="space-y-2 text-xs">
                   {/* Account Name */}
                   <div className="flex items-center justify-between font-mono text-[11px]">
-                    <span className="text-neutral-500">Name:</span>
+                    <span className="text-slate-500">Name:</span>
                     <button
                       type="button"
                       id="copy-acc-name"
                       onClick={() => copyToClipboard(FEES_DATA.bankDetails.accountName, 'accName')}
-                      className="text-white hover:text-amber-400 flex items-center gap-1 focus:outline-none"
+                      className="text-slate-800 font-bold hover:text-amber-600 flex items-center gap-1 focus:outline-none"
                     >
                       {FEES_DATA.bankDetails.accountName}
-                      <Copy className="w-3 h-3 text-neutral-500" />
+                      <Copy className="w-3.5 h-3.5 text-slate-400" />
                     </button>
                   </div>
                   
                   {/* Account Number */}
                   <div className="flex items-center justify-between font-mono text-[11px]">
-                    <span className="text-neutral-500">Acc No:</span>
+                    <span className="text-slate-500">Acc No:</span>
                     <button
                       type="button"
                       id="copy-acc-num"
                       onClick={() => copyToClipboard(FEES_DATA.bankDetails.accountNumber, 'accNo')}
-                      className="text-white hover:text-amber-400 flex items-center gap-1 focus:outline-none"
+                      className="text-slate-800 font-bold hover:text-amber-600 flex items-center gap-1 focus:outline-none"
                     >
                       {FEES_DATA.bankDetails.accountNumber}
-                      <Copy className="w-3 h-3 text-neutral-500" />
+                      <Copy className="w-3.5 h-3.5 text-slate-400" />
                     </button>
                   </div>
 
                   {/* Sort Code */}
                   <div className="flex items-center justify-between font-mono text-[11px]">
-                    <span className="text-neutral-500">Sort Code:</span>
+                    <span className="text-slate-500">Sort Code:</span>
                     <button
                       type="button"
                       id="copy-sort"
                       onClick={() => copyToClipboard(FEES_DATA.bankDetails.sortCode, 'sort')}
-                      className="text-white hover:text-amber-400 flex items-center gap-1 focus:outline-none"
+                      className="text-slate-800 font-bold hover:text-amber-600 flex items-center gap-1 focus:outline-none"
                     >
                       {FEES_DATA.bankDetails.sortCode}
-                      <Copy className="w-3 h-3 text-neutral-500" />
+                      <Copy className="w-3.5 h-3.5 text-slate-400" />
                     </button>
                   </div>
 
                   {/* Reference */}
                   <div className="flex items-center justify-between font-mono text-[11px]">
-                    <span className="text-neutral-500">Reference:</span>
+                    <span className="text-slate-500">Reference:</span>
                     <button
                       type="button"
                       id="copy-ref"
                       onClick={() => copyToClipboard(childName, 'ref')}
-                      className="text-amber-400 flex items-center gap-1 focus:outline-none font-bold"
+                      className="text-amber-600 flex items-center gap-1 focus:outline-none font-bold"
                     >
                       {childName}
-                      <Copy className="w-3 h-3" />
+                      <Copy className="w-3.5 h-3.5 text-amber-600" />
                     </button>
                   </div>
                 </div>
@@ -450,7 +452,7 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
                       initial={{ opacity: 0, y: 5 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
-                      className="text-center text-[10px] font-mono text-emerald-400 font-semibold"
+                      className="text-center text-xs font-display text-emerald-600 font-bold"
                     >
                       {lang === 'en' ? 'Copied to clipboard ✓' : 'Zkopírováno do schránky ✓'}
                     </motion.div>
@@ -459,9 +461,9 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
               </div>
 
               {/* Total Due */}
-              <div className="flex items-end justify-between border-t border-white/5 pt-4">
-                <span className="font-mono text-xs text-neutral-500 uppercase">{lang === 'en' ? 'Amount Due' : 'Částka k úhradě'}</span>
-                <span className="font-mono text-xl font-bold text-amber-400">£{totalFees.toFixed(2)}</span>
+              <div className="flex items-end justify-between border-t border-amber-200 pt-4">
+                <span className="font-display font-bold text-xs text-slate-600 uppercase">{lang === 'en' ? 'Amount Due' : 'Částka k úhradě'}</span>
+                <span className="font-display text-2xl font-bold text-amber-600">£{totalFees.toFixed(2)}</span>
               </div>
             </div>
 
@@ -471,9 +473,9 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
                 type="button"
                 id="btn-print-receipt"
                 onClick={() => window.print()}
-                className="px-6 py-3 bg-neutral-800 hover:bg-neutral-700 text-white rounded-xl text-xs uppercase tracking-wider font-mono flex items-center gap-2 border border-white/10 transition-colors cursor-pointer"
+                className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-2xl text-xs uppercase tracking-wider font-display font-bold flex items-center gap-2 border border-slate-300 transition-colors cursor-pointer"
               >
-                <Printer className="w-4 h-4" />
+                <Printer className="w-4 h-4 text-sky-600" />
                 {lang === 'en' ? 'Print Receipt' : 'Vytisknout potvrzení'}
               </button>
 
@@ -484,7 +486,7 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
                   setChildName('');
                   setIsSubmitted(false);
                 }}
-                className="px-6 py-3 bg-amber-400 hover:bg-amber-500 text-neutral-950 rounded-xl text-xs uppercase tracking-wider font-bold transition-all duration-300 shadow-md shadow-amber-400/5 cursor-pointer"
+                className="px-6 py-3 bg-amber-400 hover:bg-amber-500 text-slate-900 rounded-2xl text-xs uppercase tracking-wider font-display font-bold transition-all duration-300 shadow-md border border-amber-300 cursor-pointer"
               >
                 {lang === 'en' ? 'Register Another Child' : 'Zapsat další dítě'}
               </button>

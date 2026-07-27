@@ -1,34 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Inter", sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Quicksand", system-ui, sans-serif;
+  --font-display: "Comic Neue", "Quicksand", cursive, sans-serif;
+  --font-playful: "Comic Neue", "Quicksand", cursive, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
-/* Custom scrollbar to match the high-end dark slate visual theme */
+/* Custom scrollbar to match the playful light visual theme */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #fef08a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: #f59e0b;
   border-radius: 9999px;
-  border: 2px solid #0a0a0a;
+  border: 2px solid #fef08a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #fbbf24;
+  background: #d97706;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #050505;
+  background-color: #fffdf7;
+  color: #1e293b;
 }
+
 
