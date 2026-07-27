@@ -77,7 +77,7 @@ export default function Header({ lang, setLang, activeSection }: HeaderProps) {
         >
           <div className="relative overflow-hidden rounded-xl border border-amber-300 shadow-sm bg-white p-0.5 transform group-hover:scale-105 transition-transform shrink-0">
             <img 
-              src="/logo.jpg"
+              src={`${import.meta.env.BASE_URL}logo.jpg`}
               alt="Czech School Warwick Logo"
               className="h-11 w-auto object-contain rounded-lg"
             />
