@@ -6,9 +6,9 @@
 import { Teacher, ClassInfo, TermFee } from './types';
 
 export const IMAGE_ASSETS = {
-  heroBg: '/src/assets/images/hero_background_1783514023543.jpg',
-  learningBg: '/src/assets/images/learning_illustration_1783514037198.jpg',
-  activitiesBg: '/src/assets/images/activities_illustration_1783514049730.jpg',
+  heroBg: new URL('./assets/images/hero_background_1783514023543.jpg', import.meta.url).href,
+  learningBg: new URL('./assets/images/learning_illustration_1783514037198.jpg', import.meta.url).href,
+  activitiesBg: new URL('./assets/images/activities_illustration_1783514049730.jpg', import.meta.url).href,
 };
 
 export const CLASSES_DATA: ClassInfo[] = [
