@@ -35,6 +35,7 @@ export default function Header({ lang, setLang, activeSection }: HeaderProps) {
     { id: 'about', en: 'About', cz: 'O nás' },
     { id: 'classes', en: 'Classes', cz: 'Třídy' },
     { id: 'fees', en: 'Fees', cz: 'Školné' },
+    { id: 'calendar', en: 'Calendar', cz: 'Kalendář' },
     { id: 'team', en: 'Our Team', cz: 'Náš tým' },
     { id: 'register', en: 'Register', cz: 'Zápis' },
     { id: 'contact', en: 'Contact', cz: 'Kontakt' },

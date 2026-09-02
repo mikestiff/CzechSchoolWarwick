@@ -6,7 +6,7 @@
 import { Teacher, ClassInfo, SchoolEvent } from './types';
 
 export const IMAGE_ASSETS = {
-  heroBg: new URL('./assets/images/hero_background_1783514023543.jpg', import.meta.url).href,
+  heroBg: new URL('./assets/images/CZschoolBG.jpg', import.meta.url).href,
   learningBg: new URL('./assets/images/learning_illustration_1783514037198.jpg', import.meta.url).href,
   activitiesBg: new URL('./assets/images/activities_illustration_1783514049730.jpg', import.meta.url).href,
 };

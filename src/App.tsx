@@ -45,7 +45,7 @@ export default function App() {
 
   // Intersection Observer for tracking active section
   useEffect(() => {
-    const sections = ['hero', 'about', 'classes', 'fees', 'team', 'register', 'contact'];
+    const sections = ['hero', 'about', 'classes', 'fees', 'calendar', 'team', 'register', 'contact'];
     const observers = sections.map(id => {
       const element = document.getElementById(id);
       if (!element) return null;
@@ -520,7 +520,7 @@ export default function App() {
           </div>
 
           {/* Calendar of school days and community events */}
-          <div className="mt-16">
+          <div id="calendar" className="mt-16 scroll-mt-24">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-11 w-11 bg-sky-100 text-sky-600 border border-sky-200 rounded-2xl flex items-center justify-center shadow-sm">
                 <Calendar className="w-5 h-5" />
