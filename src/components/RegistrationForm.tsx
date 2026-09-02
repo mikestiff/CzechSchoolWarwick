@@ -210,19 +210,19 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
               <div className="space-y-6">
                 <div>
                   <h4 className="font-display font-bold text-lg text-slate-800 mb-2">
-                    {lang === 'en' ? 'Fees & Term Selection' : 'Výběr trimestru & Poplatky'}
+                    {lang === 'en' ? 'Fees & Term Selection' : 'Výběr pololetí & školné'}
                   </h4>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed">
                     {lang === 'en' 
                       ? 'Select which terms your child will attend. Fees are payable termly. A 16.6% sibling discount is automatically applied from the 2nd child.' 
-                      : 'Zvolte, které trimestry bude dítě navštěvovat. Školné se hradí na začátku trimestru. Od 2. dítěte je automaticky uplatněna sourozenecká sleva.'}
+                      : 'Zvolte, která pololetí bude dítě navštěvovat. Školné se hradí na začátku pololetí. Od 2. dítěte je automaticky uplatněna sourozenecká sleva.'}
                   </p>
                 </div>
 
                 {/* Term Select Toggles */}
                 <div className="space-y-3">
                   <label className="block text-xs font-display font-bold uppercase tracking-wider text-slate-700 mb-1">
-                    {lang === 'en' ? 'Select Terms' : 'Zvolte trimestry'}
+                    {lang === 'en' ? 'Select Terms' : 'Zvolte pololetí'}
                   </label>
                   {FEES_DATA.terms.map((term) => {
                     const isSelected = selectedTerms.includes(term.id);
@@ -314,7 +314,7 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
                   id="reg-submit-btn"
                   className="w-full py-4 bg-gradient-to-r from-amber-400 via-amber-500 to-rose-400 hover:from-amber-500 hover:to-rose-500 text-slate-900 rounded-2xl font-display text-sm uppercase tracking-wider font-bold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer border-2 border-amber-300"
                 >
-                  {lang === 'en' ? 'Submit Registration' : 'Odeslat závaznou přihlášku'}
+                  {lang === 'en' ? 'Submit Registration' : 'Odeslat nezávaznou poptávku'}
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
@@ -334,13 +334,13 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
             </div>
             
             <h3 className="font-display font-bold text-3xl text-slate-800 mb-3">
-              {lang === 'en' ? 'Registration Request Received!' : 'Přihláška úspěšně odeslána!'}
+              {lang === 'en' ? 'Registration Request Received!' : 'Nezávazná poptávka odeslána!'}
             </h3>
             
             <p className="font-sans text-sm text-slate-600 max-w-xl mx-auto mb-8 leading-relaxed">
               {lang === 'en' 
                 ? `Thank you, ${parentName}! We have generated your registration details. A place has been pre-reserved for ${childName} in the ${selectedClassDetails?.nameEn}.`
-                : `Děkujeme, ${parentName}! Vaše přihláška byla zaznamenána. Místo bylo předběžně rezervováno pro ${childName} ve třídě ${selectedClassDetails?.nameCz}.`}
+                : `Děkujeme, ${parentName}! Vaše nezávazná poptávka byla zaznamenána. Místo bylo předběžně rezervováno pro ${childName} ve třídě ${selectedClassDetails?.nameCz}.`}
             </p>
 
             {/* Glassmorphic Printable Receipt */}
@@ -374,7 +374,7 @@ export default function RegistrationForm({ lang }: RegistrationFormProps) {
                   <span className="text-slate-800 font-bold text-sm">{lang === 'en' ? selectedClassDetails?.nameEn : selectedClassDetails?.nameCz}</span>
                 </div>
                 <div>
-                  <span className="block text-slate-500 font-display text-[10px] font-bold uppercase tracking-wider">{lang === 'en' ? 'Selected Terms' : 'Zvolené trimestry'}</span>
+                  <span className="block text-slate-500 font-display text-[10px] font-bold uppercase tracking-wider">{lang === 'en' ? 'Selected Terms' : 'Zvolená pololetí'}</span>
                   <span className="text-slate-800 font-bold text-sm">{selectedTermsDetails.map(t => lang === 'en' ? t.nameEn.split(' ')[0] + ' ' + t.nameEn.split(' ')[1] : t.nameCz.split(' ')[0] + ' ' + t.nameCz.split(' ')[1]).join(', ')}</span>
                 </div>
               </div>

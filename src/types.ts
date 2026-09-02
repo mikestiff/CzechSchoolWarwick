@@ -31,3 +31,11 @@ export interface TermFee {
   priceChild: number;
   priceSibling: number;
 }
+
+export interface SchoolEvent {
+  id: string;
+  dateEn: string;
+  dateCz: string;
+  titleEn: string;
+  titleCz: string;
+}

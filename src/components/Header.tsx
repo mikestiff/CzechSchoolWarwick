@@ -34,7 +34,7 @@ export default function Header({ lang, setLang, activeSection }: HeaderProps) {
     { id: 'hero', en: 'Home', cz: 'Domů' },
     { id: 'about', en: 'About', cz: 'O nás' },
     { id: 'classes', en: 'Classes', cz: 'Třídy' },
-    { id: 'fees', en: 'Fees', cz: 'Poplatky' },
+    { id: 'fees', en: 'Fees', cz: 'Školné' },
     { id: 'team', en: 'Our Team', cz: 'Náš tým' },
     { id: 'register', en: 'Register', cz: 'Zápis' },
     { id: 'contact', en: 'Contact', cz: 'Kontakt' },
@@ -84,10 +84,10 @@ export default function Header({ lang, setLang, activeSection }: HeaderProps) {
           </div>
           <div className="flex flex-col">
             <span className="font-display font-bold tracking-wide text-xl text-slate-800 transition-colors duration-200 group-hover:text-sky-600">
-              {lang === 'en' ? 'Czech School' : 'Česká škola'}
+              {lang === 'en' ? 'Czech School Warwick' : 'Česká škola Warwick'}
             </span>
             <span className="font-sans font-semibold text-xs tracking-wider text-rose-500 flex items-center gap-1 uppercase">
-              <MapPin className="w-3 h-3 text-amber-500" /> Warwick
+              <MapPin className="w-3 h-3 text-amber-500" /> 11 Nelson Ave
             </span>
           </div>
         </button>

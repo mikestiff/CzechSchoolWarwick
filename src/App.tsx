@@ -7,7 +7,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   CLASSES_DATA, 
-  TEACHERS_DATA, 
+  TEACHERS_DATA,
+  EVENTS_DATA,
   FEES_DATA, 
   CONTACT_DETAILS, 
   IMAGE_ASSETS 
@@ -135,10 +136,7 @@ export default function App() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-display font-black text-6xl md:text-8xl lg:text-9xl tracking-tight text-white mb-2 leading-[1.05] drop-shadow-md"
           >
-            {lang === 'en' ? 'Czech School' : 'Česká škola'}
-            <span className="block text-amber-300 font-display font-extrabold text-4xl md:text-6xl lg:text-7xl mt-2 tracking-wide drop-shadow-sm">
-              {lang === 'en' ? 'in Warwick' : 've Warwicku'}
-            </span>
+            {lang === 'en' ? 'Czech School Warwick' : 'Česká škola Warwick'}
           </motion.h1>
 
           <motion.p
@@ -437,7 +435,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="font-display font-bold text-sky-700 text-xs tracking-widest uppercase mb-3 block bg-sky-100/90 px-4 py-1.5 rounded-full w-fit mx-auto border border-sky-300 shadow-sm">
-              {lang === 'en' ? 'Tuition Fees & Terms' : 'Poplatky & Trimestry'}
+              {lang === 'en' ? 'Tuition Fees & Terms' : 'Školné & Pololetí'}
             </span>
             <h2 className="font-display font-extrabold text-4xl md:text-5xl text-slate-800 tracking-tight">
               {lang === 'en' ? 'Transparent Fees, Clear Dates' : 'Přehledné školné a termíny'}
@@ -445,7 +443,7 @@ export default function App() {
             <p className="font-sans text-slate-600 text-base mt-4 font-medium leading-relaxed">
               {lang === 'en' 
                 ? 'We operate on a transparent pricing model per term. Sibling discounts are automatically calculated to help families.' 
-                : 'Školné funguje na bázi trimestrálních plateb. Pro rodiny s více dětmi automaticky poskytujeme sourozenecké slevy.'}
+                : 'Školné funguje na bázi pololetních plateb. Pro rodiny s více dětmi automaticky poskytujeme sourozenecké slevy.'}
             </p>
           </div>
 
@@ -460,7 +458,7 @@ export default function App() {
                 <div>
                   <div className="flex items-center justify-between mb-4 pb-4 border-b border-slate-100">
                     <span className="text-xs font-display text-sky-600 font-bold uppercase tracking-widest bg-sky-50 px-3 py-1 rounded-full border border-sky-200">
-                      {lang === 'en' ? `Term 0${idx+1}` : `Trimestr 0${idx+1}`}
+                      {lang === 'en' ? `Term 0${idx+1}` : `Pololetí 0${idx+1}`}
                     </span>
                     <span className="text-xs font-display font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
                       {term.sessions} {lang === 'en' ? 'lessons' : 'lekcí'}
@@ -519,6 +517,42 @@ export default function App() {
             >
               {lang === 'en' ? 'View Payment Details' : 'Zobrazit podrobnosti plateb'}
             </button>
+          </div>
+
+          {/* Calendar of school days and community events */}
+          <div className="mt-16">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-11 w-11 bg-sky-100 text-sky-600 border border-sky-200 rounded-2xl flex items-center justify-center shadow-sm">
+                <Calendar className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="font-display font-bold text-2xl text-slate-800">
+                  {lang === 'en' ? 'Calendar of Events' : 'Kalendář akcí'}
+                </h3>
+                <p className="text-slate-600 text-xs font-medium">
+                  {lang === 'en' ? 'School days, family events, and seasonal celebrations.' : 'Školní výuka, rodinné akce a tradiční oslavy.'}
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {EVENTS_DATA.map((event) => {
+                const isSpecialEvent = event.titleEn !== 'School day';
+                return (
+                  <div
+                    key={event.id}
+                    className={`flex items-center justify-between gap-4 rounded-2xl border px-4 py-3 shadow-sm ${isSpecialEvent ? 'bg-amber-100 border-amber-300' : 'bg-white border-slate-200'}`}
+                  >
+                    <span className="font-display text-xs font-bold text-slate-800 whitespace-nowrap">
+                      {lang === 'en' ? event.dateEn : event.dateCz}
+                    </span>
+                    <span className={`text-right text-xs font-semibold ${isSpecialEvent ? 'text-amber-800' : 'text-slate-600'}`}>
+                      {lang === 'en' ? event.titleEn : event.titleCz}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -711,7 +745,7 @@ export default function App() {
                       {lang === 'en' ? 'School Premises' : 'Místo konání výuky'}
                     </h4>
                     <p className="text-slate-600 text-xs leading-relaxed max-w-xs font-medium">
-                      Emscote Infant School, All Saints Road, Warwick, CV34 5NH
+                      {CONTACT_DETAILS.address}
                     </p>
                   </div>
                 </div>
@@ -847,7 +881,7 @@ export default function App() {
             <p className="text-slate-800 font-bold uppercase tracking-wider text-sm">
               {lang === 'en' ? 'CZECH & SLOVAK CLUB ENGLAND C.I.C.' : 'CZECH & SLOVAK CLUB ENGLAND C.I.C.'}
             </p>
-            <p>Registered Seat: 4 Arden Close, Warwick, CV34 5SN</p>
+            <p>Registered Seat: {CONTACT_DETAILS.postalAddress}</p>
             <p>{CONTACT_DETAILS.companyNo}</p>
           </div>
           <div className="text-right space-y-1">
